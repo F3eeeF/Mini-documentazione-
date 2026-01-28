@@ -69,8 +69,16 @@ il file Js registra determinati eventi nella Form, nello specifico:</p>
 <li>bit_duedate onChange</li>
 <li>onLoad del Form per le notifiche</li>
 </ul>
-<p>La Web Resources <strong>bit_trainingticket_form.js</strong> dopo aver preso il FormContext controlla il campo se <code>bit_pryiorty == 757730002 &amp;&amp; bit_duedate == null</code>,  (757730002 è  il valore numerico riferito alla <strong>bit_choise</strong> = High) se questa condizione  è soddisfatta crea una <strong>form notification</strong> con il messaggio <strong>“Duedate value required”</strong>  ed Id <strong>“bit_due_required”</strong>.<br>
+<p>La Web Resources dopo aver preso il FormContext controlla il campo se <code>bit_pryiorty == 757730002 &amp;&amp; bit_duedate == null</code>,  (757730002 è  il valore numerico riferito alla <strong>bit_choise</strong> = High) se questa condizione  è soddisfatta crea una <strong>form notification</strong> con il messaggio <strong>“Duedate value required”</strong>  ed Id <strong>“bit_due_required”</strong>.<br>
 Se invece <code>bit_priority != 757730002</code> rimuove ogni <strong>Form notification</strong> presente.<br>
 Se <code>bit_duedate &lt; new Date()</code> crea una <strong>form notification</strong> con il messaggio <strong>“Duedate need to be after today”</strong> ed Id <strong>"bit_due_past"</strong><br>
 Se nessuna di queste condizioni è soddisfatta, allora rimuove ogni tipo di <strong>form notification</strong>.</p>
+<p><strong>bit_TicketSummary.html</strong><br>
+La Web Resource mostra a schermo determinati dati presenti in uno specifico record letti da querystring.<br>
+Nello specifico mostra:</p>
+<ul>
+<li><strong>RecordId</strong></li>
+<li><strong>title</strong></li>
+</ul>
+<p>Tali dati vengono passati tramite l’utilizzo di un <strong>Button: “Apri riepilogo”</strong>, inserito nella command bar di <strong>Training Ticket</strong>, il quale dopo aver selezionato un record, la Web Resource <strong>bit_openDialog.js</strong>, estrae i dati dalla <strong>Row</strong> selezionata e apre un dialog con  <strong>Xrm.Navigation.navigateTo</strong>, inviando i dati via querystring., i quali poi verrano letti e mostrati grazie a  <strong>bit_TicketSummary.html</strong>.</p>
 
