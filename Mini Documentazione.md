@@ -104,6 +104,6 @@ Nel secondo si va ad estrarre i dati dal contesto, facendo un controllo se hanno
 <p>rispettate queste condizioni il <strong>Flow</strong> deve mandare un messaggio tramite Teams all’Owner.<br>
 Per una prevenzione <strong>Anti-Spam</strong> all’interno di <strong>bit_trainingticket</strong> nella <strong>section_Dettagli</strong> è stato aggiunto un campo (Date) <strong>lastremindersent</strong>.<br>
 Il quale abilita l’invio del messaggio Teams <strong><em>Solo Se</em></strong><br>
-<code>bit_lastremindersent == null || bit_lastreminderset &lt;= addHours(utcNow(), -24)</code><br>
-Dopo l’invio del messaggio il <strong>Flow</strong> aggiorna <code>bit_lastreminderset == uctNow()</code></p>
+<code>bit_lastremindersent == null || bit_lastremindersent &lt;= addHours(utcNow(), -24)</code><br>
+Dopo l’invio del messaggio il <strong>Flow</strong> aggiorna <code>bit_lastremindersent == uctNow()</code></p>
 
