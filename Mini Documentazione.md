@@ -56,10 +56,10 @@ Divisa in 3 sezioni, <strong>la prima contiene</strong>:</p>
 </ul>
 <p><strong>All’interno di Training Ticket sono state create 4 Bussines Rules</strong></p>
 <ul>
-<li>Business Rule: Rimuovere obbligatorietà bit_duedate su bit_prirority != High:  la quale toglie il <strong>Required</strong> a <strong>duedate</strong> se <code>bit_pryiorty != "High"</code></li>
-<li>Business Rule: obbligatorietà bit_duedate su bit_prirority = High: la quale obbliga <strong>duedate</strong> a <strong>Required</strong> se <code>bit_priority == "High"</code> e mostra un messaggio <strong>"Inserire una scadenza per priorità alta"</strong></li>
-<li>Bussines Rule: Visibilità condizionate su bit_duedate se bit_islocked = Yes (Hide bit_duedate): la quale nasconde il campo <strong>duedate</strong> se <strong>bit_isblocked</strong> = Yes</li>
-<li>Bussines Rule: Visibilità condizionate su bit_duedate se bit_islocked = Yes (Show bit_duedate): la quale mostra il campo <strong>duedate</strong> se <strong>bit_isblocked</strong> = No</li>
+<li>Rimuovere obbligatorietà bit_duedate su bit_prirority != High:  la quale toglie il <strong>Required</strong> a <strong>duedate</strong> se <code>bit_pryiorty != "High"</code></li>
+<li>obbligatorietà bit_duedate su bit_prirority = High: la quale obbliga <strong>duedate</strong> a <strong>Required</strong> se <code>bit_priority == "High"</code> e mostra un messaggio <strong>"Inserire una scadenza per priorità alta"</strong></li>
+<li>Visibilità condizionate su bit_duedate se bit_islocked = Yes (Hide bit_duedate): la quale nasconde il campo <strong>duedate</strong> se <strong>bit_isblocked</strong> = Yes</li>
+<li>Visibilità condizionate su bit_duedate se bit_islocked = Yes (Show bit_duedate): la quale mostra il campo <strong>duedate</strong> se <strong>bit_isblocked</strong> = No</li>
 </ul>
 <h3 id="web-resoursces">Web Resoursces</h3>
 <p><strong>bit_trainingticket_form.js</strong><br>
