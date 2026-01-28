@@ -71,6 +71,6 @@ il file Js registra determinati eventi nella Form, nello specifico:</p>
 </ul>
 <p>La Web Resources <strong>bit_trainingticket_form.js</strong> dopo aver preso il FormContext controlla il campo se <code>bit_pryiorty == 757730002 &amp;&amp; bit_duedate == null</code>,  (757730002 è  il valore numerico riferito alla <strong>bit_choise</strong> = High) se questa condizione  è soddisfatta crea una <strong>form notification</strong> con il messaggio <strong>“Duedate value required”</strong>  ed Id <strong>“bit_due_required”</strong>.<br>
 Se invece <code>bit_priority != 757730002</code> rimuove ogni <strong>Form notification</strong> presente.<br>
-Se <code>bit_duedate &lt; new Date()</code> (New Date() restituisce la data corrente) crea una <strong>form notification</strong> con il messaggio <strong>“Duedate need to be after today”</strong> ed Id <strong>"bit_due_past"</strong><br>
+Se <code>bit_duedate &lt; new Date()</code> crea una <strong>form notification</strong> con il messaggio <strong>“Duedate need to be after today”</strong> ed Id <strong>"bit_due_past"</strong><br>
 Se nessuna di queste condizioni è soddisfatta, allora rimuove ogni tipo di <strong>form notification</strong>.</p>
 
