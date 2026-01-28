@@ -93,4 +93,17 @@ Nello specifico mostra:</p>
 Nel secondo si va ad estrarre i dati dal contesto, facendo un controllo se hanno un valore ed in caso quale, se rispettano le condizioni va a creare nuovi dati con cui sostituirli e li inserisce tramite un <code>.Update(newData)</code> .</p>
 <p>Una volta creato, tramite <strong>XrmToolBox</strong> dopo essermi connesso all’ambiente <strong>Bitwise playground</strong> dentro <strong>Training Ticket</strong> registro il mio <strong>Assemblu: Bitwise.Trainingticket</strong>, con all’interno il <strong>Plugin: Bitwise.Trainingticket.ValorizazzioniAutomatiche</strong>, il quale contiene gli <strong>Step</strong> del <strong>Plugin</strong> su <strong>Create: Post-operation, Synchronous</strong></p>
 <h2 id="creazione-di-un-cloud-flow">Creazione di un Cloud Flow</h2>
+<p><strong>Flow “bit - Ticket Due Date Reminder”</strong><br>
+<strong>Il Clowd Flow ha come trigger: When a row is added, modified or deleted su Training Ticket</strong><br>
+<strong>Il Flow deve avere un trigger a certe condizioni:</strong></p>
+<ul>
+<li><code>bit_duedate != null</code></li>
+<li><code>Status == Active</code></li>
+<li><code>bit_duedate &gt;= utcNow() &amp;&amp; bit_duedate &lt;= addDays(utcNow(), 3)</code></li>
+</ul>
+<p>rispettate queste condizioni il <strong>Flow</strong> deve mandare un messaggio tramite Teams all’Owner.<br>
+Per una prevenzione <strong>Anti-Spam</strong> all’interno di <strong>bit_trainingticket</strong> nella <strong>section_Dettagli</strong> è stato aggiunto un campo (Date) <strong>lastremindersent</strong>.<br>
+Il quale abilita l’invio del messaggio Teams <strong><em>Solo Se</em></strong><br>
+<code>bit_lastremindersent == null || bit_lastreminderset &lt;= addHours(utcNow(), -24)</code><br>
+Dopo l’invio del messaggio il <strong>Flow</strong> aggiorna <code>bit_lastreminderset == uctNow()</code></p>
 
