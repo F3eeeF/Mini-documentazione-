@@ -80,5 +80,17 @@ Nello specifico mostra:</p>
 <li><strong>RecordId</strong></li>
 <li><strong>title</strong></li>
 </ul>
-<p>Tali dati vengono passati tramite l’utilizzo di un <strong>Button: “Apri riepilogo”</strong>, inserito nella command bar di <strong>Training Ticket</strong>, il quale dopo aver selezionato un record, la Web Resource <strong>bit_openDialog.js</strong>, estrae i dati dalla <strong>Row</strong> selezionata e apre un dialog con  <strong>Xrm.Navigation.navigateTo</strong>, inviando i dati via querystring., i quali poi verrano letti e mostrati grazie a  <strong>bit_TicketSummary.html</strong>.</p>
+<p>Tali dati vengono passati tramite l’utilizzo di un <strong>Button: “Apri riepilogo”</strong>, inserito nella command bar di <strong>Training Ticket</strong>, il quale dopo aver selezionato un record, la Web Resource <strong>bit_openDialog.js</strong>, estrae i dati dalla <strong>Row</strong> selezionata e apre un dialog con  <strong>Xrm.Navigation.navigateTo</strong>, inviando i dati via querystring., i quali poi verranno letti e mostrati grazie a  <strong>bit_TicketSummary.html</strong>.</p>
+<h2 id="creazione-di-un-plugin-su-create-di-bit_trainingticket-postoperation-synchronous">Creazione di un Plugin su Create di bit_trainingTicket (PostOperation, Synchronous)</h2>
+<p><strong>Il Plugin creato su Vistual Studio chiamato Bitwise.Trainingticket va a modificare dati di una Tabella al momento della sua creazione in Training Ticket.</strong><br>
+<strong>Il Plugin deve controllare se alla creazione il campo</strong> <code>IsNullOrWhiteSpace(bit_title) == true</code>, <strong>ed in caso impostarlo con il valore -&gt; “(senza titolo)”, e controllare se</strong> <code>bit_priority == 757730001 &amp;&amp; bit_duedate == null</code>, (757730001 codice di Medium in <strong>bit_choise</strong>)  <strong>ed in caso impostarlo a</strong> <code>DateTime.Now.AddDays(7)</code>.<br>
+<strong>Ed ha 2 file principali all’interno</strong></p>
+<ul>
+<li><strong>Entities.cs</strong></li>
+<li><strong>ValorizzazioniAutomatiche.cs</strong></li>
+</ul>
+<p>Nel primo sono presenti dati specifici che vanno a richiamare campi della Tabella creata in <strong>Training Ticket</strong> .<br>
+Nel secondo si va ad estrarre i dati dal contesto, facendo un controllo se hanno un valore ed in caso quale, se rispettano le condizioni va a creare nuovi dati con cui sostituirli e li inserisce tramite un <code>.Update(newData)</code> .</p>
+<p>Una volta creato, tramite <strong>XrmToolBox</strong> dopo essermi connesso all’ambiente <strong>Bitwise playground</strong> dentro <strong>Training Ticket</strong> registro il mio <strong>Assemblu: Bitwise.Trainingticket</strong>, con all’interno il <strong>Plugin: Bitwise.Trainingticket.ValorizazzioniAutomatiche</strong>, il quale contiene gli <strong>Step</strong> del <strong>Plugin</strong> su <strong>Create: Post-operation, Synchronous</strong></p>
+<h2 id="creazione-di-un-cloud-flow">Creazione di un Cloud Flow</h2>
 
